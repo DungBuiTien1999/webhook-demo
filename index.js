@@ -31,7 +31,8 @@ app.post("/webhook", (req, res) => {
 app.get('/webhook', (req, res) => {
 
     // Your verify token. Should be a random string.
-    let VERIFY_TOKEN = "sPFgX7WRcNlWvwu";
+    // let VERIFY_TOKEN = "sPFgX7WRcNlWvwu";
+    const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
       
     // Parse the query params
     let mode = req.query['hub.mode'];
@@ -54,6 +55,21 @@ app.get('/webhook', (req, res) => {
       }
     }
   });
+
+  // Handles messages events
+  function handleMessage(sender_psid, received_message) {
+
+  }
+
+  // Handles messaging_postbacks events
+function handlePostback(sender_psid, received_postback) {
+
+}
+
+// Sends response messages via the Send API
+function callSendAPI(sender_psid, response) {
+  
+}
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
