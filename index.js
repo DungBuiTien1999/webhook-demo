@@ -7,6 +7,10 @@ const app = express();
 
 app.use(bodyParser.json());
 
+app.get('/', function (_req, res) {
+  res.send('Hello World');
+});
+
 app.post("/webhook", (req, res) => {
   let body = req.body;
 
